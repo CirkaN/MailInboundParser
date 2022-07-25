@@ -24,12 +24,12 @@ class MailgunProvider implements ProviderInterface
 
     public function getRawBody(): string
     {
-        return $this->mailBody['stripped-text'];
+        return $this->mailBody['body-plain'];
     }
 
     public function getSender(): string
     {
-        return $this->mailBody['Sender'];
+        return $this->mailBody['sender'];
     }
 
     public function getTimestamp(): string
@@ -37,12 +37,12 @@ class MailgunProvider implements ProviderInterface
         return $this->mailBody['timestamp'];
     }
 
-    public function getHeaderValue(string $value): string
+    public function getHeaderValue(string $value): ?string
     {
         if (isset($this->mailBody[$value]))
             return $this->mailBody[$value];
 
-        return '';
+        return null;
     }
 
     public function getDate(): ?Carbon
@@ -55,5 +55,26 @@ class MailgunProvider implements ProviderInterface
     public function getHtmlBody(): string
     {
         return $this->mailBody['body-html'];
+    }
+
+
+    public function getRecipient(): string
+    {
+        return explode(',', $this->mailBody['recipient'])[0];
+    }
+
+    public function getRecipients(): array
+    {
+        return explode(',', $this->mailBody['recipient']);
+    }
+
+    public function saveAttachments(string $path): bool
+    {
+        if ($this->mailBody['attachment-count'] > 0) {
+            for ($i = 1; $i <= $this->mailBody['attachment-count']; $i++) {
+                \Storage::put($path, $this->mailBody['attachment-' . $i]);
+            }
+        }
+        return true;
     }
 }

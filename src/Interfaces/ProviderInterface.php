@@ -18,9 +18,15 @@ interface ProviderInterface
 
     public function getTimestamp(): string;
 
-    public function getHeaderValue(string $value): string;
+    public function getHeaderValue(string $value): ?string;
 
     public function getDate(): ?Carbon;
 
     public function getHtmlBody(): string;
+
+    public function getRecipient(): string;
+
+    public function getRecipients(): array;
+
+    public function saveAttachments(string $path): bool;
 }
