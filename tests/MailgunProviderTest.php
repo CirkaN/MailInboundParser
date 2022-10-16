@@ -38,6 +38,11 @@ beforeEach(function () {
 This is Bob.
 
 I also attached a file.',
+        'body-plain' => 'Hi Alice,
+
+This is Bob.
+
+I also attached a file.',
         'stripped-html' => '',
         'stripped-signature' => 'Thanks,
         Bob',

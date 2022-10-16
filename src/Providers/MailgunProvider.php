@@ -24,7 +24,7 @@ class MailgunProvider implements ProviderInterface
 
     public function getRawBody(): ?string
     {
-        return $this->mailBody['body-plain'];
+        return $this->mailBody['body-plain'] ?? null;
     }
 
     public function getSender(): string
