@@ -29,4 +29,6 @@ interface ProviderInterface
     public function getRecipients(): array;
 
     public function saveAttachments(string $path): bool;
+
+    public function getAttachments(): ?array;
 }

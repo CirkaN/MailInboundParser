@@ -77,4 +77,20 @@ class MailgunProvider implements ProviderInterface
         }
         return true;
     }
+    public function getAttachments(): ?array
+    {
+        $arr = [];
+        if(!isset($this->mailBody['attachment-count'])){
+            return null;
+        }
+        if ($this->mailBody['attachment-count'] > 0) {
+            for ($i = 1; $i <= $this->mailBody['attachment-count']; $i++) {
+                $arr[] = $this->mailBody['attachment-' . $i];
+            }
+        }
+        if (empty($arr)) {
+            return null;
+        }
+        return $arr;
+    }
 }
