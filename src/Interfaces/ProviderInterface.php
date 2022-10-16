@@ -10,9 +10,9 @@ interface ProviderInterface
 {
     public function setMailBody(array $mailBody): self;
 
-    public function getSubject(): string;
+    public function getSubject(): ?string;
 
-    public function getRawBody(): string;
+    public function getRawBody(): ?string;
 
     public function getSender(): string;
 

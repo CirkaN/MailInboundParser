@@ -17,12 +17,12 @@ class MailgunProvider implements ProviderInterface
         return $this;
     }
 
-    public function getSubject(): string
+    public function getSubject(): ?string
     {
         return $this->mailBody['Subject'];
     }
 
-    public function getRawBody(): string
+    public function getRawBody(): ?string
     {
         return $this->mailBody['body-plain'];
     }
