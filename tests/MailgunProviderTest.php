@@ -7,6 +7,7 @@ beforeEach(function () {
     $this->mailBody = [
         'subject' => 'Re: Sample POST request',
         'from' => 'Bob <bob@mail.test>',
+        'Cc' => 'mail@gmail.com,test@gmail.com',
         'Received' => 'from [10.20.76.69] (Unknown [50.56.129.169]) by mxa.mailgun.org with ESMTP id 517acc75.4b341f0-worker2; Fri, 26 Apr 2013 18:50:29 -0000 (UTC)',
         'Date' => 'Fri, 26 Apr 2013 11:50:29 -0700',
         'X-Mailgun-Variables' => '{"my_var_1": "Mailgun Variable #1", "my-var-2": "awesome"}',
@@ -92,4 +93,8 @@ it('can get html representation of the mail body', function () {
   <h1>Hello World</h1>
   </body>
 </html>');
+});
+it('can get list of ccs', function () {
+    $expected = $this->initializedDriver->getCcs();
+    expect($expected)->toBe(['mail@gmail.com', 'test@gmail.com']);
 });
