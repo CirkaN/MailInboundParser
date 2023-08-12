@@ -1,5 +1,5 @@
 
-# This is my package MailInboundParser
+# MailInboundParser
 
 [comment]: <> ([![Latest Version on Packagist]&#40;https://img.shields.io/packagist/v/cirkan/mailinboundparser.svg?style=flat-square&#41;]&#40;https://packagist.org/packages/cirkan/mailinboundparser&#41;)
 
@@ -9,7 +9,15 @@
 
 [comment]: <> ([![Total Downloads]&#40;https://img.shields.io/packagist/dt/cirkan/mailinboundparser.svg?style=flat-square&#41;]&#40;https://packagist.org/packages/cirkan/mailinboundparser&#41;)
 
-Simple package for parsing content from the received mail.
+InboundParser should make your life easier if you have to deal with inbound emails.
+
+<h4>What can you expect from this package?</h4>
+
+1.Email Parsing <br>
+2.Metadata Extraction <br>
+3.Content Extraction<br>
+4.Attachment Handling<br>
+5.Customization<b4>
 
 [comment]: <> (## Support us)
 
